@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ITACE | Conoce nuestro plantel</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+<div class="progreso" id="progreso"></div>
+
+<!-- PORTADA -->
+<section class="portada" id="portada">
+  <div class="portada-contenido">
+    <p class="etiqueta">LEALTAD · HONOR · Y TRABAJO</p>
+    <h1>ITACE</h1>
+    <h2>Instituto Tamaulipeco de Capacitación para el Empleo</h2>
+    <a href="#inicio" class="boton boton-dorado">ENTRAR AL SITIO ↓</a>
+  </div>
+</section>
+
+<!-- ENCABEZADO Y MENÚ -->
+<header id="inicio">
+  <a href="#portada" class="logo">ITACE <small>Conoce nuestro plantel</small></a>
+  <button class="menu-toggle" id="menuToggle">☰ MENÚ</button>
+  <nav id="menu">
+    <a href="#bienvenida">Inicio</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#maestros">Maestros</a>
+    <a href="#especialidades">Especialidades</a>
+    <a href="#plantel">Plantel</a>
+    <a href="#galeria">Galería</a>
+    <a href="#actividades">Actividades</a>
+    <a href="#gifs">Clubs</a>
+    <a href="#multimedia">Videos</a>
+    <a href="#tabla">Tabla</a>
+    <a href="#curiosidades">Curiosidades</a>
+    <a href="#opinion">Mi opinión</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
+
+<!-- AUDIO 1: HIMNO DEL ITACE-->
+  </div>
+  <div class="audio-panel">
+    <div><h3>Himno del ITACE</h3><p>Dale play para empezar.</p></div>
+    <audio id="audioItace" src="itace.mpeg" preload="auto"></audio>
+    <button class="boton boton-dorado" id="btnItace">▶ Reproducir audio</button>
+  </div>
+</section>
+
+<!-- AUDIO 2: HIMNO DE TAMAUIPAS -->
+  </div>
+  <div class="audio-panel">
+    <div><h3>Himno del de Tamaulipas.</h3><p>Dale play para empezar.</p></div>
+    <audio id="audioTamaulipas" src="tamaulipas.mpeg" preload="auto"></audio>
+    <button class="boton boton-dorado" id="btnTamaulipas">▶ Reproducir audio</button>
+  </div>
+</section>
+
+<main>
+
+<!-- 1. BIENVENIDA -->
+<section class="seccion bienvenida" id="bienvenida">
+  <div>
+    <p class="etiqueta">FORMACIÓN PARA EL FUTURO</p>
+    <h2>¡Bienvenidos al ITACE!</h2>
+    <p>Conoce nuestras instalaciones, especialidades, actividades y experiencias escolares. El ITACE representa un espacio para aprender, desarrollar habilidades técnicas y prepararse para nuevas oportunidades.</p>
+    <button class="boton" id="btnMensaje">Mensaje del día</button>
+    <p id="mensajeDia" class="mensaje">Tu próxima meta comienza con lo que aprendes hoy.</p>
+  </div>
+  <img src="itace1.jpeg" alt="Fotografía principal del ITACE">
+</section>
+
+<!-- 2. NOSOTROS -->
+<section class="seccion" id="nosotros">
+  <div class="titulo">
+    <p class="etiqueta">QUIÉNES SOMOS</p>
+    <h2>Nosotros</h2>
+  </div>
+  <article class="historia">
+    <h3>Historia y propósito del ITACE</h3>
+    <p>Nuestra historia comienza el 26 de junio de 1991 en cuando el Ing. Americo Villareal Guerrera firmo el conevio de coordinacion
+      con la Secretaria de Educacion Publica para la creacion y operacion de las unidades Altamira y Reynosa.</p>
+    <p>El plantel comenzo sus actividades oficiales en septiempre de 1991, con el proposito de ofrecer educacion media
+      superior y capacitacion para el empleo calificado, Nuestro Plantel Reynosa esta ubicado en Calle Octava Zaragoza NO.515, en Reynosa Tamp.</p>
+    <p>Elegí presentar el ITACE porque quiero mostrar sus instalaciones, las áreas de aprendizaje y algunas de las experiencias que forman parte de la vida estudiantil.</p>
+  </article>
+</section> 
+
+<!-- 3. MAESTROS -->
+ <section id="maestros" class="seccion-maestros">
+  <div class="maestros-encabezado">
+    <h2>Directorio Docente</h2>
+    <p>Conoce a nuestros maestros del ITACE Reynosa</p>
+  </div>
+
+  <div class="maestros-filtros">
+    <input
+      type="text"
+      id="buscarMaestro"
+      placeholder="Buscar maestro, materia o academia..."
+      oninput="filtrarMaestros()"
+    >
+
+    <select id="filtroAcademia" onchange="filtrarMaestros()">
+      <option value="">Todas las academias</option>
+    </select>
+  </div>
+
+  <div id="listaMaestros" class="maestros-grid"></div>
+</section>
+
+<style>
+.seccion-maestros {
+  padding: 50px 6%;
+  background: #f5ead7;
+  color: #3d1f24;
+}
+
+.maestros-encabezado {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.maestros-encabezado h2 {
+  font-size: 36px;
+  color: #6b1f2a;
+  margin-bottom: 10px;
+}
+
+.maestros-encabezado p {
+  font-size: 16px;
+}
+
+.maestros-filtros {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.maestros-filtros input,
+.maestros-filtros select {
+  padding: 13px;
+  border: 2px solid #6b1f2a;
+  border-radius: 10px;
+  font-size: 15px;
+  min-width: 230px;
+  max-width: 100%;
+}
+
+.maestros-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+}
+
+.tarjeta-maestro {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,.12);
+  transition: transform .3s;
+  border-bottom: 5px solid #a77b35;
+}
+
+.tarjeta-maestro:hover {
+  transform: translateY(-6px);
+}
+
+.maestro-foto {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  object-position: center;
+  background: #eadfce;
+}
+
+.maestro-info {
+  padding: 20px;
+}
+
+.maestro-info h3 {
+  color: #6b1f2a;
+  font-size: 19px;
+  margin: 0 0 10px;
+}
+
+.maestro-academia {
+  display: inline-block;
+  background: #6b1f2a;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+.maestro-info p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 8px 0;
+}
+
+.maestro-info strong {
+  color: #6b1f2a;
+}
+
+.sin-resultados {
+  text-align: center;
+  grid-column: 1 / -1;
+  padding: 30px;
+  font-size: 18px;
+}
+
+@media(max-width:600px) {
+  .seccion-maestros {
+    padding: 35px 15px;
+  }
+
+  .maestros-encabezado h2 {
+    font-size: 28px;
+  }
+
+  .maestros-filtros input,
+  .maestros-filtros select {
+    width: 100%;
+  }
+}
+</style>
+
+<script>
+const maestros = [
+{
+nombre:"Benjamin Limón Martínez",
+academia:"Informática",
+materias:["Programación","Inteligencia Artificial","Cultura Digital"],
+semestres:["Primero","Tercero (Inteligencia Artificial)","Quinto (Programación)"],
+perfil:"Administración en Productividad y Calidad. Maestría en Educación. Laboratorio 5. 5 años en el ITACE.",
+foto:"imagenes/avatar-maestro.png"
+},
+{
+nombre:"Laura Esmeralda Heredia Blanco",
+academia:"Ciencias Naturales",
+materias:["Ciencias 1","Ciencias 3","Ciencias 5"],
+semestres:["Primero","Tercero","Quinto"],
+perfil:"Especialidad en Física y Química. Su carrera principal es Biología.",
+foto:"imagenes/laura-heredia.jpg"
+},
+{
+nombre:"Felipe Hernández González",
+academia:"Electrónica",
+materias:["Electrónica","Semiconductores","Módulo eléctrico"],
+semestres:["Tercero","Quinto"],
+perfil:"Ingeniería en Electrónica.",
+foto:"imagenes/felipe-hernandez.jpg"
+},
+{
+nombre:"Erik Ramírez Solís",
+academia:"Matemáticas",
+materias:["Pensamiento Matemático"],
+semestres:["Primero","Tercero","Quinto"],
+perfil:"Licenciatura en Ingeniería Electromecánica y maestría en Educación. 21 años en el ITACE.",
+foto:"imagenes/erik-ramirez.jpg"
+},
+{
+nombre:"Mildred Yasmín Reyes Norberto",
+academia:"Matemáticas",
+materias:["Temas Selectos de Matemáticas 2"],
+semestres:["Quinto"],
+perfil:"Ingeniería Química y maestría en Docencia.",
+foto:"imagenes/avatar-maestra.png"
+},
+{
+nombre:"José López Vázquez",
+academia:"Mantenimiento Industrial",
+materias:["Módulo de Mantenimiento Industrial"],
+semestres:["Tercero","Quinto (turno vespertino)"],
+perfil:"Ingeniería Industrial.",
+foto:"imagenes/avatar-maestro.png"
+},
+{
+nombre:"Luis Enrique Lerma Martínez",
+academia:"Comunicación e Historia",
+materias:["Lengua y Comunicación 1","Lengua y Comunicación 3","Conciencia Histórica 2","Formación Socioemocional","Mantenimiento Petrolero","Mantenimiento Industrial"],
+semestres:["Primero","Tercero","Quinto"],
+perfil:"Ingeniería Petrolera, licenciatura en Pedagogía y diplomado en Competencias Docentes. Presidente de la academia de Conciencia Histórica. 33 años en el ITACE. Salón B2.",
+foto:"imagenes/enrique-lerma.jpg"
+},
+{
+nombre:"Yuridia Lizbeth Cepeda Ramos",
+academia:"Matemáticas e Inglés",
+materias:["Inglés","Temas Selectos de Matemáticas 2"],
+semestres:[],
+perfil:"Ingeniería Industrial, licenciatura en Matemáticas, maestría en Educación e Innovación Educativa. Actualmente estudia un doctorado en Educación.",
+foto:"imagenes/avatar-maestra.png"
+},
+{
+nombre:"Juan Pablo Torres Adame",
+academia:"Informática",
+materias:["Programación","Cultura Digital","Cursos de Excel los sábados"],
+semestres:["Primero","Tercero","Quinto"],
+perfil:"Licenciatura en Información Administrativa y maestría en Ciencias de la Enseñanza. Responsable del club de Robótica.",
+foto:"imagenes/juan-pablo.jpg"
+},
+{
+nombre:"Romualdo Guadalupe de la Cruz",
+academia:"Matemáticas y Mantenimiento",
+materias:["Pensamiento Matemático 1","Pensamiento Matemático 3"],
+semestres:["Primero","Tercero"],
+perfil:"Especialidad en Mantenimiento Industrial y mantenimiento de instalaciones petroleras.",
+foto:"imagenes/avatar-maestro.png"
+},
+{
+nombre:"Nohemí Quintanilla Arcos",
+academia:"Por confirmar",
+materias:[],
+semestres:[],
+perfil:"Especialidad, materias y semestres pendientes de confirmar.",
+foto:"imagenes/avatar-maestra.png"
+},
+{
+nombre:"Liliana Rosas Pacheco",
+academia:"Humanidades y Comunicación",
+materias:["Conciencia Histórica","Formación Socioemocional","Lengua y Comunicación","Pensamiento Filosófico en Humanidades"],
+semestres:["Primero","Quinto"],
+perfil:"Licenciatura en Pedagogía, maestría en Docencia y doctorado en Educación. 5 años en el ITACE.",
+foto:"imagenes/liliana-rosas.jpg"
+},
+{
+nombre:"Ulises Solís Rieboles",
+academia:"Ciencias Naturales",
+materias:["Ciencias Naturales 1","Ciencias Naturales 3","Ciencias Naturales 5"],
+semestres:["Primero","Tercero","Quinto"],
+perfil:"Químico Farmacéutico Biólogo. Maestrías en Análisis Clínicos y Educación. Actualmente estudia un doctorado en Educación.",
+foto:"imagenes/ulises-solis.jpg"
+},
+{
+nombre:"Rafael Villasana",
+academia:"Historia y Educación Física",
+materias:["Conciencia Histórica","Cultura Digital","Lengua y Comunicación","Educación Física"],
+semestres:["Primero","Tercero","Quinto"],
+perfil:"Especialista en Historia y Deportes.",
+foto:"imagenes/rafael-villasana.jpg"
+},
+{
+nombre:"Diana Janeth Uriegas Garza",
+academia:"Oratoria",
+materias:["Habilidades para Hablar en Público","Matemáticas Básicas"],
+semestres:["Primero","Tercero","Quinto"],
+perfil:"Licenciatura en Administración por el Instituto Tecnológico de Reynosa. Participa en el club de Oratoria.",
+foto:"imagenes/avatar-maestra.png"
+},
+{
+nombre:"José Luis González López",
+academia:"Semiconductores y Matemáticas",
+materias:["Matemáticas","Pensamiento Matemático 3","Módulo de Semiconductores"],
+semestres:["Tercero"],
+perfil:"Información de formación académica adicional no proporcionada.",
+foto:"imagenes/avatar-maestro.png"
+},
+{
+nombre:"Javier Alfonso Acosta García",
+academia:"Mantenimiento Automotriz",
+materias:["Módulo de Mantenimiento Automotriz"],
+semestres:["Tercero","Quinto"],
+perfil:"Ingeniería Electromecánica y maestría en Ingeniería Industrial y Manufactura Avanzada.",
+foto:"imagenes/avatar-maestro.png"
+},
+{
+nombre:"Mario Alonso Santoyo Arroyo",
+academia:"Mantenimiento Industrial",
+materias:["Módulo Profesional de Mantenimiento Industrial 2","Módulo Profesional de Mantenimiento Industrial 4"],
+semestres:["Tercero","Quinto"],
+perfil:"Ingeniería Industrial, maestría en Educación y carrera técnica en Refrigeración y Climatización.",
+foto:"imagenes/mario-santoyo.jpg"
+},
+{
+nombre:"Erika Aidé Pérez Abrego",
+academia:"Ciencias Naturales y Humanidades",
+materias:["Ciencias Naturales","Humanidades"],
+semestres:["Tercero","Quinto"],
+perfil:"Ingeniería Industrial y de Sistemas y maestría en Educación.",
+foto:"imagenes/erika-perez.jpg"
+},
+{
+nombre:"Bertha Alicia Zapata Aldape",
+academia:"Matemáticas",
+materias:[],
+semestres:["Primero","Tercero"],
+perfil:"Doctorado. 2 años y medio en el ITACE.",
+foto:"imagenes/avatar-maestra.png"
+},
+{
+nombre:"Carlos Melecio Carmona Olivares",
+academia:"Diseño Gráfico e Inglés",
+materias:[],
+semestres:["Primero","Tercero"],
+perfil:"Licenciatura en Diseño Gráfico por la UVB y maestría en Educación Básica por la UPN. 2 años en el ITACE.",
+foto:"imagenes/avatar-maestro.png"
+},
+{
+nombre:"Grecia Ávalos Ramos",
+academia:"Lengua y Comunicación",
+materias:["Lengua y Comunicación"],
+semestres:["Primero","Tercero"],
+perfil:"Licenciatura y maestría. 3 años en el ITACE. Salón B1.",
+foto:"imagenes/avatar-maestra.png"
+},
+{
+nombre:"Sandra Catalina Silva Camacho",
+academia:"Comunicación",
+materias:[],
+semestres:["Todos; se menciona quinto"],
+perfil:"Maestría en Metodología de la Enseñanza. 25 años en el ITACE. Salón B4.",
+foto:"imagenes/avatar-maestra.png"
+},
+{
+nombre:"Carla Valeria Morán Lerma",
+academia:"Humanidades y Ciencias Sociales",
+materias:["Pensamiento Filosófico","Ciencias Sociales","Cultura Digital"],
+semestres:["Primero","Tercero"],
+perfil:"Maestría. 33 años en el ITACE.",
+foto:"imagenes/avatar-maestra.png"
+},
+{
+nombre:"Isidro de León Flores",
+academia:"Educación Física y Orientación",
+materias:[],
+semestres:["Todos"],
+perfil:"Licenciatura en Psicopedagogía y licenciatura en Pedagogía. 29 años en el ITACE.",
+foto:"imagenes/avatar-maestro.png"
+},
+{
+nombre:"Norma Elena Torres Quiñones",
+academia:"Ciencias Naturales e Informática",
+materias:[],
+semestres:["Primero","Tercero","Quinto"],
+perfil:"Ingeniería Química y maestría en Docencia. 26 años en el ITACE. Salón C4.",
+foto:"imagenes/avatar-maestra.png"
+},
+{
+nombre:"Brenda Itzel Herrera García",
+academia:"Informática",
+materias:["Cultura Digital","Inteligencia Artificial"],
+semestres:["Primero","Tercero"],
+perfil:"Técnica en Informática, Ingeniería en Sistemas Computacionales y maestría en Educación. 4 años en el ITACE.",
+foto:"imagenes/brenda-hererra.jpg"
+},
+{
+nombre:"Walter Allan Barrera Cerda",
+academia:"Comunicación e Inglés",
+materias:["Inglés 3"],
+semestres:["Tercero (Inglés)","Primero, segundo y tercero (club de Rondalla)"],
+perfil:"Ingeniería Industrial y Administración. 13 años en el ITACE. Participa en el club de Rondalla.",
+foto:"imagenes/avatar-maestro.png"
+},
+{
+nombre:"Omar Saúl González Alatriste",
+academia:"Prefectura",
+materias:[],
+semestres:["Responsable de tercer semestre"],
+perfil:"32 años en el ITACE.",
+foto:"imagenes/omar-gonzales.jpg"
+}
+];
+
+const lista = document.getElementById("listaMaestros");
+const filtro = document.getElementById("filtroAcademia");
+
+function mostrarMaestros(datos) {
+  lista.innerHTML = "";
+
+  if(datos.length === 0) {
+    lista.innerHTML = '<p class="sin-resultados">No se encontraron maestros.</p>';
+    return;
+  }
+
+  datos.forEach(maestro => {
+    const tarjeta = document.createElement("article");
+    tarjeta.className = "tarjeta-maestro";
+
+    const foto = document.createElement("img");
+    foto.className = "maestro-foto";
+    foto.src = maestro.foto;
+    foto.alt = "Fotografía de " + maestro.nombre;
+    foto.onerror = function() {
+      this.onerror = null;
+      this.src = maestro.academia.includes("Matemáticas") ||
+        maestro.academia.includes("Naturales") ||
+        maestro.academia.includes("Humanidades")
+        ? "imagenes/avatar-maestra.png"
+        : "imagenes/avatar-maestro.png";
+    };
+
+    const info = document.createElement("div");
+    info.className = "maestro-info";
+
+    const titulo = document.createElement("h3");
+    titulo.textContent = maestro.nombre;
+
+    const academia = document.createElement("span");
+    academia.className = "maestro-academia";
+    academia.textContent = maestro.academia;
+
+    const materias = document.createElement("p");
+    materias.innerHTML = "<strong>Materias:</strong> " +
+      (maestro.materias.length ? maestro.materias.join(", ") : "Información pendiente");
+
+    const semestres = document.createElement("p");
+    semestres.innerHTML = "<strong>Semestres:</strong> " +
+      (maestro.semestres.length ? maestro.semestres.join(", ") : "Por confirmar");
+
+    const perfil = document.createElement("p");
+    perfil.innerHTML = "<strong>Perfil profesional:</strong> ";
+    perfil.appendChild(document.createTextNode(maestro.perfil));
+
+    info.append(titulo, academia, materias, semestres, perfil);
+    tarjeta.append(foto, info);
+    lista.appendChild(tarjeta);
+  });
+}
+
+function filtrarMaestros() {
+  const busqueda = document.getElementById("buscarMaestro").value.toLowerCase();
+  const academia = filtro.value;
+
+  const resultados = maestros.filter(maestro => {
+    const contenido = [
+      maestro.nombre,
+      maestro.academia,
+      maestro.perfil,
+      ...maestro.materias,
+      ...maestro.semestres
+    ].join(" ").toLowerCase();
+
+    return contenido.includes(busqueda) &&
+      (!academia || maestro.academia === academia);
+  });
+
+  mostrarMaestros(resultados);
+}
+
+[...new Set(maestros.map(m => m.academia))]
+  .sort()
+  .forEach(academia => {
+    const opcion = document.createElement("option");
+    opcion.value = academia;
+    opcion.textContent = academia;
+    filtro.appendChild(opcion);
+  });
+
+mostrarMaestros(maestros);
+</script>
+
+<!-- 4. ESPECIALIDADES -->
+<section class="seccion fondo" id="especialidades">
+  <div class="titulo">
+    <p class="etiqueta">APRENDE HACIENDO</p>
+    <h2>Áreas y especialidades</h2>
+  </div>
+  <div class="rejilla">
+    <article class="tarjeta"><span>⚙️</span><h3>Mantenimiento Automotriz</h3><p>Aprendizaje sobre diagnóstico, revisión y mantenimiento de vehículos.</p></article>
+    <article class="tarjeta"><span>💻</span><h3>Programación</h3><p>Creación de páginas web, programas y aplicaciones mediante código.</p></article>
+    <article class="tarjeta"><span>🎨</span><h3>Diseño Gráfico</h3><p>Comunicación visual, composición, imágenes y creatividad digital.</p></article>
+    <article class="tarjeta"><span>⚡</span><h3>Electrónica</h3><p>Estudio de circuitos, componentes y sistemas electrónicos.</p></article>
+    <article class="tarjeta"><span>📦</span><h3>Logística</h3><p>Organización de recursos, productos, almacenamiento y distribución.</p></article>
+    <article class="tarjeta"><span>🛠️</span><h3>Mantenimiento Industrial</h3><p>Cuidado preventivo y correctivo de equipos y maquinaria.</p></article>
+    <article class="tarjeta"><span>🔒</span><h3>Ciberseguridad</h3><p>Protege computadoras, celulares, redes, sistemas y datos personales.</p></article>
+    <article class="tarjeta"><span>📋</span><h3>Inteligencia Artificial</h3><p>Introduce a los estudiantes en el desarrollo de soluciones tecnológicas utilizando datos, automatización y herramientas de inteligencia artificial.</p></article>
+  </div>
+</section>
+
+<!-- 5. CONOCE EL PLANTEL -->
+<section class="seccion" id="plantel">
+  <div class="titulo">
+    <p class="etiqueta">ESPACIOS PARA APRENDER</p>
+    <h2>Conoce nuestro plantel</h2>
+  </div>
+  <div class="rejilla">
+    <article class="tarjeta foto-plantel"><img src="estudiantes.jpeg" alt="Estudiantes"><h3>Estudiantes</h3><p>Comunidad y convivencia escolar.</p></article>
+    <article class="tarjeta foto-plantel"><img src="comedores.jpeg" alt="Comedores"><h3>Comedores</h3><p>Espacios de descanso y convivencia.</p></article>
+    <article class="tarjeta foto-plantel"><img src="bancas.jpeg" alt="Bancas"><h3>Bancas</h3><p>Áreas para reunirse entre clases.</p></article>
+    <article class="tarjeta foto-plantel"><img src="foro.jpeg" alt="Foro principal"><h3>Foro principal</h3><p>Espacio para eventos y presentaciones.</p></article>
+    <article class="tarjeta foto-plantel"><img src="prefectura.jpeg" alt="Prefectura"><h3>Prefectura</h3><p>Área de apoyo a la organización escolar.</p></article>
+    <article class="tarjeta foto-plantel"><img src="zona de convivenciaa.jpeg" alt="Zona de convivencia"><h3>Zona de convivencia</h3><p>Un lugar para compartir experiencias.</p></article>
+    <article class="tarjeta foto-plantel"><img src="Taller Auto.jpeg" alt="Taller automotriz"><h3>Taller automotriz</h3><p>Espacio de aprendizaje práctico.</p></article>
+    <article class="tarjeta foto-plantel"><img src="modulo d programacion.jpeg" alt="Módulo de programación"><h3>Módulo de programación</h3><p>Aprendizaje relacionado con la tecnología.</p></article>
+  </div>
+</section>
+
+<!-- 6. GALERÍA DE 15 FOTOS -->
+<section class="seccion fondo-vino" id="galeria">
+  <div class="titulo titulo-claro">
+    <p class="etiqueta">EN IMÁGENES</p>
+    <h2>Galería del ITACE</h2>
+    <p>Puedes ampliar la foto al pulsarla.</p>
+  </div>
+  <div class="galeria">
+    <button class="foto" data-titulo="Fotografía 8"><img src="foto8.jpeg" alt="Fotografía 8"><span>Entrega de apoyo al Teleton.</span></button>
+    <button class="foto" data-titulo="Fotografía 9"><img src="foto9.jpeg" alt="Fotografía 9"><span>Alumnos y profes apoyando a la prevencion de cancer de mama.</span></button>
+    <button class="foto" data-titulo="Fotografía 10"><img src="foto10.jpeg" alt="Fotografía 10"><span>Compañeras appyando el cancer de mama.</span></button>
+    <button class="foto" data-titulo="Fotografía 11"><img src="foto11.jpeg" alt="Fotografía 11"><span>Junta de padres de familia.</span></button>
+    <button class="foto" data-titulo="Fotografía 12"><img src="foto12.jpeg" alt="Fotografía 12"><span>Entrega de reconocimientos a jovenes en Microsoft Excel Basico.</span></button>
+    <button class="foto" data-titulo="Fotografía 13"><img src="foto13.jpeg" alt="Fotografía 13"><span>Escolta el los dias Lunes.</span></button>
+    <button class="foto" data-titulo="Fotografía 14"><img src="foto14.jpeg" alt="Fotografía 14"><span>Jovenes incorporandose a Dual.</span></button>
+    <button class="foto" data-titulo="Fotografía 15"><img src="foto 15.jpeg" alt="Fotografía 15"><span>Prefectos apoyando en la colecta del teleton.</span></button>
+    <button class="foto" data-titulo="Fotografía 16"><img src="16.jpeg" alt="Fotografía 14"><span>Campaña de vacunacion.</span></button>
+    <button class="foto" data-titulo="Fotografía 17"><img src="17.jpeg" alt="Fotografía 15"><span>Dia internacional de la cuera.</span></button>
+  </div>
+
+</section>
+
+<!-- 7. ACTIVIDADES -->
+<section class="seccion" id="actividades">
+  <div class="titulo"><p class="etiqueta">VIDA ESCOLAR</p><h2>Noticias y actividades</h2></div>
+  <div class="rejilla">
+    <article class="tarjeta"><span>🎨</span><h3>Día de Muertos</h3><p>Altares, exposiciones y actividades para celebrar nuestras tradiciones.</p><div class="espacio-foto"><img src="muertos.jpeg" alt="Altar de muertos"></div></article>
+    <article class="tarjeta"><span>🥁</span><h3>Banda de Guerra</h3><p>Disciplina, coordinación y trabajo en equipo en actividades cívicas.</p><div class="espacio-foto"><img src="banda.jpeg" alt="Banda de guerra"></div></article>
+    <article class="tarjeta"><span>⚽</span><h3>Fútbol</h3><p>Actividades deportivas que fomentan el compañerismo.</p><div class="espacio-foto"><img src="futbol.jpeg" alt="Equipo de fútbol"></div></article>
+    <article class="tarjeta"><span>⚾</span><h3>Béisbol</h3><p>Participación deportiva, esfuerzo y colaboración.</p><div class="espacio-foto"><img src="beisbol.jpeg" alt="Béisbol"></div></article>
+    <article class="tarjeta"><span>🏐</span><h3>Voleibol</h3><p>Trabajo en equipo y preparación deportiva.</p><div class="espacio-foto"><img src="voleibol.jpeg" alt="Voleibol"></div></article>
+    <article class="tarjeta"><span>🎭</span><h3>Arte y cultura</h3><p>Espacios para expresar creatividad y talento.</p><div class="espacio-foto"><img src="arte.jpeg" alt="Arte y cultura"></div></article>
+    <article class="tarjeta"><span>💃</span><h3>Danza</h3><p>Desarrolla pasos de danza folklorica.</p><div class="espacio-foto"><img src="danza.jpeg" alt="Danza"></div></article>
+    <article class="tarjeta"><span>💂‍♂️</span><h3>Escolta</h3><p>Participativa en los eventos de cada Lunes.</p><div class="espacio-foto"><img src="escolta.jpeg" alt="Escolta"></div></article>
+  </div>
+</section>
+
+<!-- 8. CLUBES -->
+<section class="seccion fondo" id="gifs">
+  <div class="titulo"><p class="etiqueta">ITACE TE OFRECE UNA AMPLIA VARIAD DE CLUBS.</p><h2>CLUBS</h2></div>
+  <div class="rejilla gifs">
+    <article class="tarjeta"><img src="DANZA CLUB.jpeg" alt="GIF de aprendizaje"><h3>Danza</h3></article>
+    <article class="tarjeta"><img src="ORATORIA CLUB.jpeg" alt="GIF de tecnología"><h3>Oratoria</h3></article>
+    <article class="tarjeta"><img src="DIBUJO CLUB.jpeg" alt="GIF de creatividad"><h3>Dibujo</h3></article>
+    <article class="tarjeta"><img src="RONDAYA CLUB.jpeg" alt="GIF de trabajo en equipo"><h3>Rondaya</h3></article>
+    <article class="tarjeta"><img src="AJEDREZ CLUB.jpeg" alt="GIF de aprendizaje"><h3>Ajedrez</h3></article>
+    <article class="tarjeta"><img src="BANDA CLUB.jpeg" alt="GIF de tecnología"><h3>Banda de Guerra</h3></article>
+    <article class="tarjeta"><img src="PREMILITAR CLUB.jpeg" alt="GIF de creatividad"><h3>Premilitar</h3></article>
+    <article class="tarjeta"><img src="robotica club.jpeg" alt="GIF de trabajo en equipo"><h3>Robotica</h3></article>
+  </div>
+</section>
+
+<!-- 9. VIDEOS Y AUDIO -->
+<section class="seccion" id="multimedia">
+  <div class="titulo"><p class="etiqueta">MIRA Y ESCUCHA</p><h2>Multimedia escolar</h2></div>
+  <div class="rejilla videos">
+    <article class="tarjeta"><video controls preload="metadata"><source src="video1.mp4" type="video/mp4">Tu navegador no admite video.</video><h3>Platicas impartidas a Alumnos.</h3></article>
+    <article class="tarjeta"><video controls preload="metadata"><source src="video tamps.mp4" type="video/mp4">Tu navegador no admite video.</video><h3>Himno de Tamaulipas cantado por alumnos.</h3></article>
+    <article class="tarjeta"><video controls preload="metadata"><source src="video itace.mp4" type="video/mp4">Tu navegador no admite video.</video><h3>Himno del ITACE cantado por alumnos.</h3></article>
+    <article class="tarjeta"><video controls preload="metadata"><source src="video4.mp4" type="video/mp4">Tu navegador no admite video.</video><h3>Escolta</h3></article>
+  </div>
+
+<!-- 10. TABLA COMPARATIVA -->
+<section class="seccion fondo" id="tabla">
+  <div class="titulo"><p class="etiqueta">COMPARA Y CONOCE</p><h2>Tabla de áreas escolares</h2></div>
+  <div class="tabla-contenedor">
+    <table>
+      <thead><tr><th>Área o perfil</th><th>Tipo</th><th>Habilidad</th><th>Fortaleza</th><th>Personalidad o característica</th></tr></thead>
+      <tbody>
+        <tr><td>Programación</td><td>Tecnología</td><td>Escribir código</td><td>Lógica</td><td>Creativa</td></tr>
+        <tr><td>Mantenimiento automotriz</td><td>Técnica</td><td>Diagnosticar</td><td>Precisión</td><td>Práctica</td></tr>
+        <tr><td>Diseño gráfico</td><td>Creativa</td><td>Comunicar visualmente</td><td>Imaginación</td><td>Artística</td></tr>
+        <tr><td>Electrónica</td><td>Técnica</td><td>Analizar circuitos</td><td>Atención</td><td>Metódica</td></tr>
+        <tr><td>Logística</td><td>Organización</td><td>Planear</td><td>Orden</td><td>Estratégica</td></tr>
+        <tr><td>Mantenimiento industrial</td><td>Técnica</td><td>Cuidar equipos</td><td>Prevención</td><td>Responsable</td></tr>
+        <tr><td>Docente</td><td>Académica</td><td>Enseñar</td><td>Comunicación</td><td>Orientadora</td></tr>
+        <tr><td>Estudiante</td><td>Comunidad</td><td>Aprender</td><td>Curiosidad</td><td>Participativa</td></tr>
+        <tr><td>Equipo deportivo</td><td>Deportiva</td><td>Colaborar</td><td>Disciplina</td><td>Competitiva</td></tr>
+        <tr><td>Equipo cultural</td><td>Cultural</td><td>Expresarse</td><td>Creatividad</td><td>Colaborativa</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 11. CURIOSIDADES -->
+<section class="seccion" id="curiosidades">
+  <div class="titulo"><p class="etiqueta">¿SABÍAS QUE...?</p><h2>Curiosidades</h2></div>
+  <aside class="curiosidades">
+    <ol>
+      <li>La práctica ayuda a relacionar la teoría con situaciones reales.</li>
+      <li>Los proyectos grupales fortalecen la comunicación.</li>
+      <li>La programación permite desarrollar páginas web y aplicaciones.</li>
+      <li>El mantenimiento preventivo busca reducir fallas en los equipos.</li>
+      <li>El diseño gráfico combina imágenes, texto y color para comunicar.</li>
+      <li>Documentar un proyecto ayuda a explicar lo aprendido.</li>
+    </ol>
+    <button class="boton" id="btnCuriosidad">Descubrir una curiosidad</button>
+    <p id="curiosidadAleatoria" class="mensaje">Pulsa el botón para descubrir un dato.</p>
+  </aside>
+</section>
+
+<!-- 12. OPINIÓN PERSONAL -->
+<section class="seccion fondo" id="opinion">
+  <div class="titulo"><p class="etiqueta">MI EXPERIENCIA</p><h2>Mi opinión sobre el ITACE</h2></div>
+  <article class="opinion">
+    <h3>¿Por qué elegí presentar el ITACE?</h3>
+    <p>Para mí, el ITACE representa una oportunidad para aprender cosas nuevas, desarrollar habilidades y convivir con otras personas.</p>
+    <p><b>Mi recuerdo favorito:</b> Un recuerdo bonito que tengo del ITACE es cuando recien entramos, que nos llevaron
+    a mi grupo a el polideportivo de Reynosa y ahi convivimos con mucha gente de diferentes preparatorias.</p>
+    <p><b>Mi área favorita:</b> El comedor, ya que siempre que tengo hambre o sed ahi nos venden sin importar el horario.</p>
+    <p><b>Lo que he aprendido:</b> He aprendido a mejorar como estudiante, asi como trabajar en equipo, ser mas participativo y perderle el
+      miedo a muchas cosas a las cuales antes no me atrevia a hacer.</p>
+    <button class="boton" id="btnOpinion">Ver reflexión</button>
+    <p id="reflexion" class="mensaje oculto">Cada habilidad que desarrollamos puede ayudarnos a construir nuestro futuro.</p>
+  </article>
+</section>
+
+<!-- 13. CONTACTO -->
+<section class="seccion contacto" id="contacto">
+  <p class="etiqueta">FIN DEL RECORRIDO</p>
+  <h2>Gracias por visitar el ITACE</h2>
+  <p>Conoce, aprende y participa en tu comunidad escolar.</p>
+  <p>Ubicados en Calle Octava Zaragoza No.515 Reynosa Tamaulipas.</p>
+  <a href="https://www.facebook.com/itaceplantelreynosa/"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="boton-facebook">
+   📘 Visita nuestro Facebook
+</a>
+
+  <a class="boton boton-dorado" href="#portada">↑ Volver al inicio</a>
+</section>
+
+</main>
+
+<footer>
+  <h2>ITACE</h2>
+  <p><b>Trabajo:</b> Pagina web del ITACE</p>
+  <p><b>Alumno:</b> Hector Alexis Santa Rosa Hernandez </p>
+  <p><b>Grupo:</b> 502 B </p>
+</footer>
+
+<!-- VENTANA PARA AMPLIAR FOTOGRAFÍAS -->
+<dialog id="visor">
+  <button id="cerrarVisor" class="cerrar">✕ Cerrar</button>
+  <img id="imagenGrande" src="" alt="">
+  <p id="tituloGrande"></p>
+</dialog>
+<script>
+    const videos = document.querySelectorAll("video");
+
+    videos.forEach((video) => {
+        video.addEventListener("play", () => {
+            videos.forEach((otroVideo) => {
+                if (otroVideo !== video) {
+                    otroVideo.pause();
+                }
+            });
+        });
+    });
+</script>
+</body>
+
+<script src="script.js"></script>
+</body>
+</html>
